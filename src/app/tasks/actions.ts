@@ -27,37 +27,34 @@ export async function createTask(values: unknown) {
   return task;
 }
 
-export async function deleteTask(formData: FormData) {
+export async function deleteTaskAction(formData: FormData) {
   const id = Number(formData.get('id')); // get hidden input value
 
   if (!id) {
     throw new Error('Invalid task input');
   }
 
-  const deletedTask = await db.task.delete({
+  await db.task.delete({
     where: { id },
   });
-  console.log('Deleted task:', deletedTask);
 
   // refresh tasks list after creating
   revalidatePath('/tasks');
 }
 
-export async function toggleDone(formData: FormData) {
+export async function toggleDoneAction(formData: FormData) {
   const id = Number(formData.get('id')); // get hidden input value
   const done = formData.get('done') === 'true'; // get hidden input value
-  console.log('DONaaaE', done);
   if (!id) {
     throw new Error('Invalid task input');
   }
 
-  const updatedTask = await db.task.update({
+  await db.task.update({
     where: { id },
     data: {
       done: !done,
     },
   });
-  console.log('updated task:', updatedTask);
 
   // refresh tasks list after creating
   revalidatePath('/tasks');

@@ -12,7 +12,6 @@ export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
     console.error('❌ Error boundary:', error);
   }, [error]);
-  console.log('error', error.message);
   return (
     <div className="flex flex-col items-center justify-center h-[calc(100vh-92px)]  px-4">
       <h2 className="text-3xl font-semibold text-primary mb-4">

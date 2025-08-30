@@ -15,7 +15,9 @@ import { useState } from 'react';
 export default function TaskFormModal({ triggerLabel = 'Add Task' }) {
   const [open, setOpen] = useState(false);
 
-  const handleSuccess = () => setOpen(false);
+  const handleSuccess = () => {
+    setTimeout(() => setOpen(false), 10); // Small delay to avoid flicker
+  };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
