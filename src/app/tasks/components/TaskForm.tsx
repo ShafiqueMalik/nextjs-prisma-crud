@@ -37,7 +37,6 @@ export default function TaskForm({ onSuccess }: { onSuccess: () => void }) {
         onSuccess();
       } catch (err) {
         console.error(err);
-        alert('Error creating task');
       }
     });
   }

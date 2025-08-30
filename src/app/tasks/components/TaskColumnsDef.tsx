@@ -46,10 +46,7 @@ export const columns = [
             <input type="hidden" name="done" value={task.done.toString()} />
             <ToggleDone done={task.done} />
           </form>
-          <form action={deleteTaskAction}>
-            <input type="hidden" name="id" value={task.id} />
-            <DeleteBtn />
-          </form>
+          <DeleteBtn id={task.id} />
         </div>
       );
     },

@@ -14,7 +14,7 @@ export default function Error({ error, reset }: ErrorProps) {
   }, [error]);
   return (
     <div className="flex flex-col items-center justify-center h-[calc(100vh-92px)]  px-4">
-      <h2 className="text-3xl font-semibold text-primary mb-4">
+      <h2 className="text-3xl font-semibold text-destructive mb-2">
         {error?.message || 'Something went wrong'}
       </h2>
       <p className=" mb-6 text-center max-w-md">
