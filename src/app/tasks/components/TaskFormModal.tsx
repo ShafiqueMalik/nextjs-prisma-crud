@@ -10,9 +10,15 @@ import {
 } from '@/components/ui/dialog';
 import TaskForm from './TaskForm';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-export default function TaskFormModal({ triggerLabel = 'Add Task' }) {
+export default function TaskFormModal({
+  triggerLabel = 'Add Task',
+  defaultValues,
+}: {
+  triggerLabel: React.ReactNode;
+  defaultValues?: any;
+}) {
   const [open, setOpen] = useState(false);
 
   const handleSuccess = () => {
@@ -21,13 +27,13 @@ export default function TaskFormModal({ triggerLabel = 'Add Task' }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button>{triggerLabel}</Button>
+        {typeof triggerLabel === 'string' ? <Button>{triggerLabel}</Button> : triggerLabel}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Add New Task</DialogTitle>
         </DialogHeader>
-        <TaskForm onSuccess={handleSuccess} />
+        <TaskForm onSuccess={handleSuccess} defaultValues={defaultValues} />
       </DialogContent>
     </Dialog>
   );

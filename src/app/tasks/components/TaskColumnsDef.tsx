@@ -1,12 +1,16 @@
 'use client';
 
+import { Edit } from 'lucide-react';
 import DeleteBtn from './DeleteBtn';
-import { deleteTaskAction, toggleDoneAction } from '../actions';
-import ToggleDone from './ToggleDone';
+
+import StatusMenu from './StatusMenu';
+import TaskFormModal from './TaskFormModal';
+import { AppButton } from '@/shared/components/forms/AppButton';
 export type Task = {
   id: number;
   title: string;
   description?: string;
+  status: string;
   done: boolean;
   createdAt: Date;
 };
@@ -24,28 +28,31 @@ export const columns = [
     enableSorting: true,
   },
   {
-    accessorKey: 'done',
+    accessorKey: 'status',
     header: 'status',
     size: 80, // fixed width
     enableSorting: true,
     cell: ({ row }) => {
       const task = row.original;
-      return <span className="">{task.done ? 'Done' : 'Open'}</span>;
+      return <StatusMenu id={task.id} status={task.status} />;
     },
   },
   {
     id: 'actions',
     header: 'Actions',
-    size: 120,
+    size: 50,
     cell: ({ row }) => {
       const task = row.original;
       return (
         <div className="flex items-center gap-2  ">
-          <form action={toggleDoneAction}>
-            <input type="hidden" name="id" value={task.id} />
-            <input type="hidden" name="done" value={task.done.toString()} />
-            <ToggleDone done={task.done} />
-          </form>
+          <TaskFormModal
+            triggerLabel={
+              <AppButton variant="secondary">
+                <Edit />
+              </AppButton>
+            }
+            defaultValues={task}
+          />
           <DeleteBtn id={task.id} />
         </div>
       );

@@ -9,9 +9,15 @@ datasource db {
 
 model Task {
   id        Int      @id @default(autoincrement())
-  title     String
+  title     String  @unique
   description String?
-  done      Boolean  @default(false)
+  status    Status   @default(TODO)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Status {
+  TODO
+  INPROGRESS
+  DONE
 }

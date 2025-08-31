@@ -27,7 +27,7 @@ interface AppButtonProps {
 const variantClasses: Record<AppButtonVariant, string> = {
   primary: 'bg-primary text-primary-foreground border-none px-4 py-1',
   primaryOutlined: 'border border-primary text-primary bg-transparent',
-  secondary: 'bg-secondary text-black border-none',
+  secondary: 'bg-secondary text-black border-none hover:bg-gray-300',
   secondaryOutlined: 'border border-secondary text-secondary bg-transparent',
   linkPrimary: 'text-primary underline bg-transparent border-none !p-0',
   linkSecondary: 'text-secondary underline bg-transparent border-none p-0',
