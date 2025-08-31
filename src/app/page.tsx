@@ -1,7 +1,6 @@
 import { AppButton } from '@/shared/components/forms/AppButton';
-import Link from 'next/link';
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-20 rounded-b-3xl">
       <div className="max-w-5xl mx-auto px-6 text-center">

@@ -18,8 +18,7 @@ export default function StatusMenu({ status, id }: { status: StatusesType; id: n
   const handleStatusChange = async (status: StatusesType) => {
     startTransition(async () => {
       try {
-        const response = await updateStatusAction(status, id);
-        console.log('status chagned', response);
+        await updateStatusAction(status, id);
       } catch (err) {
         console.error(err);
       }

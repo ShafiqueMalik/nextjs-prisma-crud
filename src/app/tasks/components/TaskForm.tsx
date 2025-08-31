@@ -13,7 +13,6 @@ import TextareaField from '@/shared/components/forms/TextareaField';
 import { useTransition } from 'react';
 import { createTaskAction, updateTaskAction } from '../actions';
 import SelectField from '@/shared/components/forms/SelectField';
-import { Prisma } from '@prisma/client';
 
 const schema = z.object({
   title: z.string().min(1, 'Title is required'),
@@ -31,7 +30,6 @@ export default function TaskForm({
   defaultValues: any;
 }) {
   const [isPending, startTransition] = useTransition();
-  console.log('defaultValues', defaultValues);
   const { title = '', description = '', status = 'TODO', id } = defaultValues || {};
   const form = useForm<FormValues>({
     resolver: zodResolver(schema) as any,

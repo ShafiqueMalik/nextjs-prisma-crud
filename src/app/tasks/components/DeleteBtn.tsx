@@ -2,7 +2,6 @@
 import { AppButton } from '@/shared/components/forms/AppButton';
 import { useState, useTransition } from 'react';
 import { deleteTaskAction } from '../actions';
-import { LoadingSpinner } from '@/shared/components/loadings/LoadingSpinner';
 import { Trash } from 'lucide-react';
 import ConfirmModal from '@/shared/components/modals/ConfirmModal';
 
