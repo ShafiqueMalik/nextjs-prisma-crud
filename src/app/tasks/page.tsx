@@ -4,7 +4,6 @@ import TaskDataTable from './components/TaskDataTable';
 
 export default async function TasksPage() {
   const tasks = await db.task.findMany({ orderBy: { createdAt: 'desc' } });
-  console.log('tasks', tasks);
 
   return (
     <div className="mx-auto max-w-5xl p-6 space-y-6">
@@ -13,7 +12,7 @@ export default async function TasksPage() {
       </div>
 
       <div className="rounded-xl overflow-x-auto">
-        <TaskDataTable data={tasks || []} />
+        <TaskDataTable tasks={tasks || []} />
       </div>
     </div>
   );

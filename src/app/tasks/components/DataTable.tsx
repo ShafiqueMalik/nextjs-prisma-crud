@@ -63,18 +63,18 @@ function DataTable<TData, TValue>({ columns, data, headerContent }: DataTablePro
       </div>
 
       {/* Table */}
-      <div className="rounded-md border border-gray-300 min-h-[300px]">
+      <div className="rounded-md border border-gray-300 h-[300px] overflow-auto">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="border-gray-300">
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className="font-bold text-black bg-gray-200">
                     {header.isPlaceholder ? null : (
                       <div
                         className={
                           header.column.getCanSort()
-                            ? 'cursor-pointer select-none flex items-center'
+                            ? 'cursor-pointer select-none flex items-center '
                             : ''
                         }
                         onClick={header.column.getToggleSortingHandler()}

@@ -89,3 +89,9 @@ export async function updateTaskAction(data: any, id: number) {
   // refresh tasks list after creating
   revalidatePath('/tasks');
 }
+
+export async function getTasksByStatus(status: StatusesType) {
+  const tasks = await db.task.findMany({ where: { status }, orderBy: { createdAt: 'desc' } });
+  console.log('sssssssss', tasks);
+  return tasks;
+}

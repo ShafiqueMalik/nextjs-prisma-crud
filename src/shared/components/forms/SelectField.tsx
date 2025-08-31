@@ -40,7 +40,7 @@ export default function SelectField({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label}</FormLabel>
+          {label && <FormLabel>{label}</FormLabel>}
           <Select onValueChange={field.onChange} value={field.value}>
             <FormControl className={cn('w-full border-white/40', className)}>
               <SelectTrigger>

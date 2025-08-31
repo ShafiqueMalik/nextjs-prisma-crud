@@ -11,10 +11,10 @@ const josefin_Sans = Josefin_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Todo App',
-    default: 'Todo App',
+    template: '%s - Task Manager',
+    default: 'Task Manager',
   },
-  description: 'A Todo App application built with Next.js, Prisma, React, and Tailwind CSS.',
+  description: 'A Task Manager application built with Next.js, Prisma, React, and Tailwind CSS.',
 };
 
 export default async function RootLayout({
