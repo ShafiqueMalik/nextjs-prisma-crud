@@ -42,23 +42,23 @@ export async function deleteTaskAction(id: number) {
   return response;
 }
 
-export async function toggleDoneAction(formData: FormData) {
-  const id = Number(formData.get('id')); // get hidden input value
-  const done = formData.get('done') === 'true'; // get hidden input value
-  if (!id) {
-    throw new Error('Invalid task input');
-  }
+// export async function toggleDoneAction(formData: FormData) {
+//   const id = Number(formData.get('id')); // get hidden input value
+//   const done = formData.get('done') === 'true'; // get hidden input value
+//   if (!id) {
+//     throw new Error('Invalid task input');
+//   }
 
-  await db.task.update({
-    where: { id },
-    data: {
-      done: !done,
-    },
-  });
+//   await db.task.update({
+//     where: { id },
+//     data: {
+//       done: !done,
+//     },
+//   });
 
-  // refresh tasks list after creating
-  revalidatePath('/tasks');
-}
+//   // refresh tasks list after creating
+//   revalidatePath('/tasks');
+// }
 
 export async function updateStatusAction(status: StatusesType, id: number) {
   if (!status) {
