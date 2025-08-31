@@ -29,7 +29,7 @@ export default async function RootLayout({
           <div className="w-full">
             <Navbar />
             {/* <NavigationBar /> */}
-            <main className="flex flex-col min-h-[calc(100vh-62px)] py-6 ">
+            <main className="flex flex-col min-h-[calc(100vh-62px)] ">
               <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
             </main>
 

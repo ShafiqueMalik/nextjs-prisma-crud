@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default async function Home() {
   return (
-    <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-20">
+    <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-20 rounded-b-3xl">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
           Organize Your Work, Boost Your Productivity

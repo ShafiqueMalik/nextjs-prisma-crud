@@ -30,7 +30,7 @@ export const columns = [
   {
     accessorKey: 'status',
     header: 'status',
-    size: 80, // fixed width
+    size: 122, // fixed width
     enableSorting: true,
     cell: ({ row }) => {
       const task = row.original;

@@ -14,7 +14,7 @@ function DeleteBtn({ id }: { id: number }) {
     startTransition(async () => {
       try {
         await deleteTaskAction(id); // 👈 call server action directly
-        setOpen(false);
+        setTimeout(() => setOpen(false), 10); // Small delay to avoid flicker
       } catch (err: any) {
         console.error(err);
         throw err;

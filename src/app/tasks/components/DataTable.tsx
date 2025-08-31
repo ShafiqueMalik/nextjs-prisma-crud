@@ -119,7 +119,7 @@ function DataTable<TData, TValue>({ columns, data, headerContent }: DataTablePro
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-[300px] text-center ">
+                <TableCell colSpan={columns.length} className="h-[258px] text-center text-2xl">
                   No results.
                 </TableCell>
               </TableRow>
