@@ -6,6 +6,7 @@ import DeleteBtn from './DeleteBtn';
 import StatusMenu from './StatusMenu';
 import TaskFormModal from './TaskFormModal';
 import { AppButton } from '@/shared/components/forms/AppButton';
+import { cn } from '@/lib/utils';
 export type Task = {
   id: number;
   title: string;
@@ -35,6 +36,26 @@ export const columns = [
     cell: ({ row }) => {
       const task = row.original;
       return <StatusMenu id={task.id} status={task.status} />;
+    },
+  },
+  {
+    accessorKey: 'priority',
+    header: 'Priority',
+    size: 70,
+    enableSorting: true,
+    cell: ({ row }) => {
+      const task = row.original;
+      return (
+        <div
+          className={cn(
+            `bg-green-200 px-1 rounded-md text-xs flex justify-center items-center py-1 `,
+            task.priority === 'MEDIUM' && 'bg-orange-200',
+            task.priority === 'HIGH' && 'bg-red-200'
+          )}
+        >
+          {task.priority}
+        </div>
+      );
     },
   },
   {

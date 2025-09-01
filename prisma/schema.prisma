@@ -12,6 +12,7 @@ model Task {
   title     String  @unique
   description String?
   status    Status   @default(TODO)
+  priority Priority @default(LOW)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -20,4 +21,9 @@ enum Status {
   TODO
   INPROGRESS
   DONE
+}
+enum Priority {
+  LOW 
+  MEDIUM
+  HIGH
 }

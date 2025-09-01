@@ -18,6 +18,7 @@ const schema = z.object({
   title: z.string().min(1, 'Title is required'),
   description: z.string().optional(),
   status: z.string().optional(),
+  priority: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -30,10 +31,16 @@ export default function TaskForm({
   defaultValues: any;
 }) {
   const [isPending, startTransition] = useTransition();
-  const { title = '', description = '', status = 'TODO', id } = defaultValues || {};
+  const {
+    title = '',
+    description = '',
+    status = 'TODO',
+    priority = 'LOW',
+    id,
+  } = defaultValues || {};
   const form = useForm<FormValues>({
     resolver: zodResolver(schema) as any,
-    defaultValues: { title, description, status },
+    defaultValues: { title, description, status, priority },
   });
 
   function onSubmit(values: FormValues) {
@@ -65,7 +72,17 @@ export default function TaskForm({
           label="Description"
           placeholder="Optional details..."
         />
-
+        <SelectField
+          control={form.control}
+          name="priority"
+          label="Priority"
+          placeholder="Select Priority"
+          options={[
+            { label: 'Low', value: 'LOW' },
+            { label: 'Medium', value: 'MEDIUM' },
+            { label: 'High', value: 'HIGH' },
+          ]}
+        />
         <SelectField
           control={form.control}
           name="status"

@@ -10,10 +10,13 @@ const schema = z.object({
   title: z.string().min(1, 'Title is required'),
   description: z.string().optional(),
   status: z.enum(['TODO', 'INPROGRESS', 'DONE']),
+  priority: z.enum(['LOW', 'MEDIUM', 'HIGH']),
 });
 
 export async function createTaskAction(values: unknown) {
   // validate on server too
+  console.log('values', values);
+  // return;
   const parsed = schema.safeParse(values);
   if (!parsed.success) {
     throw new Error('Invalid task input');
